@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/geo-location/geo-location.html">
 
 <dom-module id="bubble-app">
   <template>
@@ -7,13 +8,20 @@
         display: block;
       }
     </style>
+    <geo-location on-geo-error="handleGeoError"></geo-location>
+
     <h2>Hello [[prop1]]</h2>
   </template>
 
   <script>
+
     Polymer({
 
       is: 'bubble-app',
+
+      handleGeoError: function() {
+        console.log("handleGeoError");
+    },
 
       properties: {
         prop1: {
