@@ -1,0 +1,6 @@
+{
+  "name": "bubble-polymer-app",
+  "short_name": "bubble-polymer-app",
+  "start_url": "/",
+  "display": "standalone"
+}
