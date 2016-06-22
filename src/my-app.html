@@ -11,6 +11,8 @@
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/geo-location/geo-location.html">
+<link rel="import" href="../bower_components/paper-spinner/paper-spinner.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="my-icons.html">
 
 <dom-module id="my-app">
@@ -51,6 +53,16 @@
         padding-left: 32px;
       }
 
+      .main-container {
+          @apply(--layout-vertical);
+          @apply(--layout-wrap);
+      }
+
+      .container {
+          @apply(--layout-horizontal);
+          @apply(--layout-center-justified);
+      }
+
     </style>
 
     <app-location route="{{route}}"></app-location>
@@ -88,15 +100,19 @@
           </app-toolbar>
         </app-header>
 
-        <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
-            <bubble-main-view name="main-view"></bubble-main-view>
-            <!--
-          <my-view1 name="view1"></my-view1>
-          <my-view2 name="view2"></my-view2>
-          <my-view3 name="view3"></my-view3>
-            -->
-        </iron-pages>
-
+        <div class="main-container">
+            <div class="container">
+                <paper-spinner active></paper-spinner>
+            </div>
+            <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
+                <bubble-main-view name="main-view"></bubble-main-view>
+                <!--
+                <my-view1 name="view1"></my-view1>
+                <my-view2 name="view2"></my-view2>
+                <my-view3 name="view3"></my-view3>
+                -->
+            </iron-pages>
+        </div>
       </app-header-layout>
 
     </app-drawer-layout>
